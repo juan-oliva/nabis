@@ -1,0 +1,65 @@
+@import url(https://db.onlinewebfonts.com/c/6fa591daa0aa2d0f845653486954aca5?family=Akira+Expanded);
+@import url(https://db.onlinewebfonts.com/c/6a6c946c81961ceab1711da6da2b26af?family=AkiraExpanded-SuperBold);
+
+:root {
+  --color-bg: #000;
+  --color-fg: #fff;
+  --color-accent-blue: #003da5;
+  --color-accent-orange: #ff6a13;
+  --stroke-width: 1.5px;
+  --h1-prefered-size: 12vw;
+  --h2-prefered-size: 4vw;
+  --h1-minimum-size: 4rem;
+  --h2-minimum-size: 1rem;
+  --h1-maximum-size: 12rem;
+  --h2-maximum-size: 4rem;
+}
+
+/* Typography */
+h1 {
+  font-family: "AkiraExpanded-SuperBold", sans-serif;
+  font-size: clamp(
+    var(--h1-minimum-size),
+    var(--h1-prefered-size),
+    var(--h1-maximum-size)
+  );
+  color: transparent;
+  font-style: italic;
+  margin: 0;
+  -webkit-text-stroke: var(--stroke-width) var(--color-fg);
+}
+
+h2 {
+  font-family: "Akira Expanded", sans-serif;
+  font-size: clamp(
+    var(--h2-minimum-size),
+    var(--h2-prefered-size),
+    var(--h2-maximum-size)
+  );
+  color: var(--color-fg);
+  margin: 0;
+}
+
+/* Layout */
+body {
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Utilities */
+.orange {
+  color: var(--color-accent-orange);
+}
+.blue {
+  color: var(--color-accent-blue);
+}
