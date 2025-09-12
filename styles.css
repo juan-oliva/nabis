@@ -6,7 +6,7 @@
   --color-fg: #fff;
   --color-accent-blue: #003da5;
   --color-accent-orange: #ff6a13;
-  --stroke-width: 1.5px;
+  --stroke-width: 1px;
   --h1-prefered-size: 12vw;
   --h2-prefered-size: 4vw;
   --h1-minimum-size: 4rem;
@@ -37,23 +37,30 @@ h2 {
     var(--h2-maximum-size)
   );
   color: var(--color-fg);
-  margin: 0;
+  margin: 0.5rem 0 0 0;
 }
 
-/* Layout */
+/* Reset & Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-.container {
-  width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  gap: 0.5rem;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+}
+.container {
+  text-align: center;
+  max-width: 90vw;
 }
 
 /* Utilities */
