@@ -22,10 +22,16 @@
           <span class="blue">Light</span> your <span class="orange">fire</span>
         </h2>
       </div>
-      <div class="accordion">
+      <div class="accordion" role="region" aria-label="Content navigation">
         <div class="accordion-item">
-          <button class="accordion-button">Soundcloud</button>
-          <div class="accordion-content">
+          <button
+            class="accordion-button"
+            aria-expanded="false"
+            aria-controls="soundcloud-panel"
+          >
+            Soundcloud
+          </button>
+          <div class="accordion-content" id="soundcloud-panel" role="region">
             <div
               style="left: 0; width: 100%; height: 166px; position: relative"
             >
@@ -40,13 +46,20 @@
                   border: 0;
                 "
                 allowfullscreen
+                title="NABIS SoundCloud player"
               ></iframe>
             </div>
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-button">YouTube</button>
-          <div class="accordion-content">
+          <button
+            class="accordion-button"
+            aria-expanded="false"
+            aria-controls="youtube-panel"
+          >
+            YouTube
+          </button>
+          <div class="accordion-content" id="youtube-panel" role="region">
             <div class="iframely-embed">
               <div
                 class="iframely-responsive"
@@ -62,8 +75,14 @@
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-button">Instagram</button>
-          <div class="accordion-content">
+          <button
+            class="accordion-button"
+            aria-expanded="false"
+            aria-controls="instagram-panel"
+          >
+            Instagram
+          </button>
+          <div class="accordion-content" id="instagram-panel" role="region">
             <blockquote
               class="instagram-media"
               data-instgrm-permalink="https://www.instagram.com/__nabis/?utm_source=ig_embed&utm_campaign=loading"
@@ -158,6 +177,7 @@
                       version="1.1"
                       xmlns="https://www.w3.org/2000/svg"
                       xmlns:xlink="https://www.w3.org/1999/xlink"
+                      aria-hidden="true"
                     >
                       <g
                         stroke="none"
@@ -334,11 +354,16 @@
             // Close all accordion items
             document.querySelectorAll(".accordion-item").forEach((item) => {
               item.classList.remove("active");
+              const btn = item.querySelector(".accordion-button");
+              if (btn) {
+                btn.setAttribute("aria-expanded", "false");
+              }
             });
 
             // Open clicked item if it wasn't already open
             if (!isActive) {
               currentItem.classList.add("active");
+              this.setAttribute("aria-expanded", "true");
             }
           });
         });

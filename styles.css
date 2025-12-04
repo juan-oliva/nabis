@@ -107,11 +107,17 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
+  outline: none;
 }
 
 .accordion-button:hover {
   color: var(--color-accent-blue);
   opacity: 0.8;
+}
+
+.accordion-button:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
 }
 
 .accordion-button::after {
@@ -128,14 +134,16 @@ body {
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.4s linear, padding 0.4s linear, opacity 0.4s linear;
   background-color: rgba(255, 255, 255, 0.02);
+  opacity: 0;
 }
 
 .accordion-item.active .accordion-content {
   max-height: 600px;
   padding: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 1;
 }
 
 /* Utilities */
